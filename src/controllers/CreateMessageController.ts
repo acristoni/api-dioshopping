@@ -3,11 +3,11 @@ import { CreateMessageService } from "../services/CreateMessageService";
 
 class CreateMessageController{
     async handle(request: Request, response: Response){
-        const { email, message } = request.body;
+        const { email, message, teor } = request.body;
 
         const createMessageService = new CreateMessageService();
 
-        const newMessage = await createMessageService.execute({ email, message});
+        const newMessage = await createMessageService.execute({ email, message, teor});
 
         return response.json(newMessage);
     }
